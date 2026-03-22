@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{--accent:#0ea5a4}
+:root {
+  --bg:      #0B0F14;
+  --primary: #00FF9F;
+  --secondary: #3B82F6;
+  --fg:      #E5E7EB;
+}
 
-body{background-color:var(--bg,#0f172a);color:var(--fg,#e6eef8)}
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+}
