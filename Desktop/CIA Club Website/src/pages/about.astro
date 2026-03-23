@@ -1,7 +1,111 @@
 ---
 import Layout from '../components/Layout.astro';
+
+const values = [
+  {
+    icon: '📚',
+    title: 'Learning & Growth',
+    desc: 'Continuously building knowledge and skills in cybersecurity through hands-on practice, workshops, and self-study.',
+  },
+  {
+    icon: '🤝',
+    title: 'Collaboration & Community',
+    desc: 'Working together to solve problems, share expertise, and support one another in the pursuit of cybersecurity excellence.',
+  },
+  {
+    icon: '⚖️',
+    title: 'Ethics & Responsibility',
+    desc: 'Promoting ethical practices and responsible behavior in all areas of cybersecurity — both inside and outside the classroom.',
+  },
+  {
+    icon: '💡',
+    title: 'Innovation & Curiosity',
+    desc: 'Exploring new tools, techniques, and ideas in the cyber world with an open and inquisitive mindset.',
+  },
+  {
+    icon: '🏫',
+    title: 'Campus Safety Awareness',
+    desc: 'Educating and supporting the FSU campus community to reduce digital risks and minimize potential attack surfaces for everyone.',
+  },
+];
 ---
-<Layout title="About">
-  <h2 class="text-2xl font-semibold">About</h2>
-  <p>Team bios and contact guidance.</p>
+
+<Layout title="About — Frostburg Cybersecurity Club">
+
+  <!-- Page Header -->
+  <section class="pt-16 pb-12 text-center px-4">
+    <span class="text-[#00FF9F] text-sm font-mono tracking-widest uppercase">Who We Are</span>
+    <h1 class="mt-3 text-4xl md:text-5xl font-extrabold text-[#E5E7EB]">
+      About the <span class="text-[#00FF9F]">Club</span>
+    </h1>
+  </section>
+
+  <!-- Description -->
+  <section class="max-w-3xl mx-auto px-4 pb-20 border-b border-white/10">
+    <p class="text-[#E5E7EB]/80 text-lg leading-relaxed">
+      The Frostburg State University Cybersecurity Club is a community of FSU students who are
+      passionate about protecting cyberspace and exploring all aspects of cybersecurity. We provide
+      hands-on learning opportunities, workshops, competitions, and projects to prepare members for
+      careers in cybersecurity. We also aim to foster a strong sense of responsibility and awareness
+      about online safety across campus, helping to minimize potential attack surfaces for everyone.
+      Whether you're a beginner or an expert, we are eager to learn, grow, and secure the digital
+      world together.
+    </p>
+  </section>
+
+  <!-- Mission Statement -->
+  <section class="py-20 border-b border-white/10">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <span class="text-[#3B82F6] text-sm font-mono tracking-widest uppercase">Our Mission</span>
+      <blockquote class="mt-6 text-2xl md:text-3xl font-semibold text-[#E5E7EB] leading-snug">
+        "Building the next generation of cyber defenders by promoting knowledge, skill-building,
+        and collaboration in areas such as ethical hacking, network security, digital forensics,
+        and cyber defense."
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <span class="text-[#00FF9F] text-sm font-mono tracking-widest uppercase">What We Stand For</span>
+        <h2 class="mt-3 text-3xl font-bold text-[#E5E7EB]">Our <span class="text-[#00FF9F]">Values</span></h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {values.map(({ icon, title, desc }) => (
+          <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:border-[#00FF9F]/40 transition">
+            <div class="text-3xl mb-4">{icon}</div>
+            <h3 class="text-lg font-semibold text-[#E5E7EB] mb-2">{title}</h3>
+            <p class="text-[#E5E7EB]/60 text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 border-t border-white/10">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <h2 class="text-2xl font-bold text-[#E5E7EB] mb-4">Want to be part of the team?</h2>
+      <p class="text-[#E5E7EB]/60 mb-8">
+        All FSU students are welcome — no prior experience needed. Come as you are and grow with us.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a
+          href="/join"
+          class="px-6 py-3 rounded bg-[#00FF9F] text-[#0B0F14] font-bold hover:opacity-90 transition"
+        >
+          Join the Club
+        </a>
+        <a
+          href="/team"
+          class="px-6 py-3 rounded border border-[#3B82F6] text-[#3B82F6] font-semibold hover:bg-[#3B82F6]/10 transition"
+        >
+          Meet the Team
+        </a>
+      </div>
+    </div>
+  </section>
+
 </Layout>
