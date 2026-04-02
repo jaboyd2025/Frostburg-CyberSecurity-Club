@@ -1,0 +1,166 @@
+---
+import Layout from '../components/Layout.astro';
+
+const upcomingEvents = [
+  {
+    id: 'bobcat-ctf',
+    title: 'Bobcat CTF Competition',
+    date: 'April 26 · 10:30 AM – 3:30 PM',
+    category: 'CTF Competition',
+    categoryColor: '#00FF9F',
+    description:
+      'Put your cybersecurity skills to the test in the Bobcat CTF — Frostburg\'s own Capture the Flag competition. Solve challenges in web exploitation, cryptography, forensics, reverse engineering, and more. Open to all skill levels.',
+    highlights: ['Web Exploitation', 'Cryptography', 'Forensics', 'Reverse Engineering'],
+    registerUrl:
+      'https://forms.cloud.microsoft/pages/responsepage.aspx?id=0V75uBgqRkKBBAOmdHjTowW6w3zmi-5IrRAgOdlarwVUMTZUS0dTSkExUDZCS1ozTVU5VjlJQ1ZLQy4u&route=shorturl',
+    icon: '🚩',
+    accentColor: '#00FF9F',
+  },
+];
+---
+
+<Layout title="Events — Frostburg Cybersecurity Club">
+
+  <!-- Page Header -->
+  <section class="pt-16 pb-12 text-center px-4">
+    <span class="text-[#00FF9F] text-sm font-mono tracking-widest uppercase">Competitions & Meetups</span>
+    <h1 class="mt-3 text-4xl md:text-5xl font-extrabold text-[#E5E7EB]">
+      Club <span class="text-[#00FF9F]">Events</span>
+    </h1>
+    <p class="mt-4 text-[#E5E7EB]/60 max-w-xl mx-auto">
+      Stay up to date with competitions, workshops, and everything happening in the club.
+    </p>
+  </section>
+
+  <!-- Upcoming Events -->
+  <section class="py-16 border-t border-white/10">
+    <div class="max-w-3xl mx-auto px-8">
+
+      <div class="text-center mb-12">
+        <span class="text-[#3B82F6] text-sm font-mono tracking-widest uppercase">On the Horizon</span>
+        <h2 class="mt-2 text-3xl font-bold text-[#E5E7EB]">Upcoming <span class="text-[#00FF9F]">Events</span></h2>
+      </div>
+
+      <div class="flex flex-col gap-8">
+        {upcomingEvents.map((ev) => (
+          <div class="rounded-2xl border border-white/10 bg-white/5">
+
+            <!-- Colored top bar -->
+            <div style={`height:6px; background:${ev.accentColor}; border-radius:1rem 1rem 0 0;`} />
+
+            <div style="padding: 2rem 3rem 1.5rem; text-align:left;">
+
+              <!-- Icon -->
+              <div style={`width:3.5rem; height:3.5rem; max-width:3.5rem; max-height:3.5rem; overflow:hidden; border-radius:1rem; display:flex; align-items:center; justify-content:center; font-size:1.5rem; line-height:1; background:${ev.accentColor}18; border:1px solid ${ev.accentColor}44; margin-bottom:1.25rem;`}>
+                {ev.icon}
+              </div>
+
+              <!-- Category + date -->
+              <div style="display:flex; flex-wrap:wrap; align-items:center; gap:0.75rem; margin-bottom:1rem;">
+                <span class="text-xs font-mono px-3 py-1 rounded-full" style={`color:${ev.categoryColor}; background:${ev.categoryColor}18; border:1px solid ${ev.categoryColor}33;`}>
+                  {ev.category}
+                </span>
+                <span class="text-[#E5E7EB]/50 text-sm font-mono">{ev.date}</span>
+              </div>
+
+              <!-- Title -->
+              <h3 class="text-3xl font-bold text-[#E5E7EB] mb-4">{ev.title}</h3>
+
+              <!-- Description -->
+              <p class="text-[#E5E7EB]/60 leading-relaxed mb-6">{ev.description}</p>
+
+              <!-- Challenge category tags -->
+              <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.5rem; margin-bottom:2rem;">
+                {ev.highlights.map((tag) => (
+                  <span class="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[#E5E7EB]/60">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <!-- Register button -->
+              <a
+                href={ev.registerUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-8 py-3 rounded-lg font-semibold text-[#0B0F14] transition hover:opacity-90 active:scale-95 text-base"
+                style={`background:${ev.accentColor};`}
+              >
+                🚩 Register Now ↗
+              </a>
+
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Past Events -->
+  <section class="py-16 border-t border-white/10">
+    <div class="max-w-5xl mx-auto px-8">
+
+      <div class="text-center mb-12">
+        <span class="text-[#3B82F6] text-sm font-mono tracking-widest uppercase">History</span>
+        <h2 class="mt-2 text-3xl font-bold text-[#E5E7EB]">Past <span class="text-[#00FF9F]">Events</span></h2>
+      </div>
+
+      <!-- UMBC CTF 2026 -->
+      <div class="rounded-2xl border border-white/10 bg-white/5">
+        <div style="height:6px; background:#3B82F6; border-radius:1rem 1rem 0 0;"></div>
+        <div style="padding: 2rem 3rem 1.5rem; text-align:left;">
+
+          <!-- Icon -->
+          <div style="width:3.5rem; height:3.5rem; max-width:3.5rem; max-height:3.5rem; overflow:hidden; border-radius:1rem; display:flex; align-items:center; justify-content:center; font-size:1.5rem; line-height:1; background:#3B82F618; border:1px solid #3B82F644; margin-bottom:1.25rem;">
+            🏆
+          </div>
+
+          <!-- Category + date -->
+          <div style="display:flex; flex-wrap:wrap; align-items:center; gap:0.75rem; margin-bottom:1rem;">
+            <span class="text-xs font-mono px-3 py-1 rounded-full" style="color:#3B82F6; background:#3B82F618; border:1px solid #3B82F633;">
+              CTF Competition
+            </span>
+            <span class="text-[#E5E7EB]/50 text-sm font-mono">March 28, 2026</span>
+          </div>
+
+          <!-- Title -->
+          <h3 class="text-3xl font-bold text-[#E5E7EB] mb-4">2026 UMBC Capture the Flag Competition</h3>
+
+          <!-- Description -->
+          <p class="text-[#E5E7EB]/60 leading-relaxed mb-3">
+            Members of the Frostburg Cybersecurity Club competed in the 2026 UMBC CTF, tackling challenges in cryptography, web exploitation, reverse engineering, and more.
+          </p>
+
+          <!-- Achievement callout -->
+          <p class="text-[#00FF9F] font-semibold mb-6">
+            🥉 The Backdoor Bobcats placed 3rd among universities.
+          </p>
+
+          <!-- Tags -->
+          <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.5rem; margin-bottom:2rem;">
+            {['Web Exploitation', 'Cryptography', 'Forensics', 'Reverse Engineering'].map((tag) => (
+              <span class="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[#E5E7EB]/60">
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <!-- Article link -->
+          <a
+            href="https://www.frostburg.edu/news/2026/03/maryland-capture-the-flag-competition.php"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-8 py-3 rounded-lg font-semibold text-[#0B0F14] transition hover:opacity-90 active:scale-95 text-base"
+            style="background:#3B82F6;"
+          >
+            📰 Read the Article ↗
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>
