@@ -11,11 +11,13 @@
     "preview": "astro preview",
     "format": "prettier --write ."
   },
-  "devDependencies": {
+  "dependencies": {
     "astro": "^6.0.8",
+    "tailwindcss": "^3.4.0",
     "autoprefixer": "^10.4.0",
-    "postcss": "^8.4.0",
-    "prettier": "^2.0.0",
-    "tailwindcss": "^3.4.0"
+    "postcss": "^8.4.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.0.0"
   }
 }
