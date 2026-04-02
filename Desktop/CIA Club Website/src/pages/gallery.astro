@@ -1,0 +1,144 @@
+---
+import Layout from '../components/Layout.astro';
+
+const events = [
+  {
+    id: 'umbc-ctf-2025',
+    title: '2025 UMBC Capture the Flag Competition',
+    date: 'March 28, 2025',
+    description: 'Members of the Frostburg Cybersecurity Club competed in the 2025 UMBC CTF, tackling challenges in cryptography, web exploitation, reverse engineering, and more.',
+    photos: [
+      { src: '/gallery/20260328_174033542_iOS.jpg',  fit: 'cover'   },
+      { src: '/gallery/20260328_174041587_iOS.jpg',  fit: 'cover'   },
+      { src: '/gallery/20260328_174046794_iOS.jpg',  fit: 'cover'   },
+      { src: '/gallery/20260328_174054145_iOS.jpg',  fit: 'cover'   },
+      { src: '/gallery/20260328_174058648_iOS.jpg',  fit: 'cover'   },
+      { src: '/gallery/Firas and Javon Taylor.jpg',  fit: 'contain' },
+      { src: '/gallery/team vault.jpg',               fit: 'cover',   pos: 'center 20%' },
+    ],
+  },
+  // Add future events here
+];
+---
+
+<Layout title="Gallery — Frostburg Cybersecurity Club">
+
+  <!-- Page Header -->
+  <section class="pt-16 pb-12 text-center px-4">
+    <span class="text-[#00FF9F] text-sm font-mono tracking-widest uppercase">Memories & Moments</span>
+    <h1 class="mt-3 text-4xl md:text-5xl font-extrabold text-[#E5E7EB]">
+      Event <span class="text-[#00FF9F]">Gallery</span>
+    </h1>
+    <p class="mt-4 text-[#E5E7EB]/60 max-w-xl mx-auto">
+      A look back at the events, competitions, and experiences that bring our club together.
+    </p>
+  </section>
+
+  <!-- One section per event -->
+  {events.map((ev) => (
+    <section class="py-16 border-t border-white/10">
+      <div class="max-w-4xl mx-auto px-4">
+
+        <!-- Event header -->
+        <div class="mb-8 text-center">
+          <span class="text-[#3B82F6] text-sm font-mono tracking-widest uppercase">{ev.date}</span>
+          <h2 class="mt-2 text-2xl md:text-3xl font-bold text-[#E5E7EB]">{ev.title}</h2>
+          <p class="mt-3 text-[#E5E7EB]/60 max-w-2xl mx-auto">{ev.description}</p>
+        </div>
+
+        <!-- Carousel -->
+        <div class="carousel" data-id={ev.id} style="position:relative;">
+
+          <!-- Slides -->
+          <div class="carousel-track" style="position:relative; width:100%; aspect-ratio:16/9; background:#111827; border-radius:0.75rem; overflow:hidden; border:1px solid rgba(255,255,255,0.1);">
+            {ev.photos.map(({ src, fit }, i) => (
+              <div
+                class="carousel-slide"
+                data-slide={String(i)}
+                style={`position:absolute; inset:0; opacity:${i === 0 ? '1' : '0'}; transition:opacity 0.4s ease; display:flex; align-items:center; justify-content:center;`}
+              >
+                <img
+                  src={src}
+                  alt={`${ev.title} — photo ${i + 1}`}
+                  style={`width:100%; height:100%; object-fit:${fit}; ${fit === 'contain' ? 'padding:0.5rem;' : ''}`}
+                  loading={i === 0 ? 'eager' : 'lazy'}
+                />
+              </div>
+            ))}
+          </div>
+
+          <!-- Prev arrow -->
+          <button
+            class="carousel-prev"
+            style="position:absolute; left:-1.5rem; top:50%; transform:translateY(-50%); background:rgba(11,15,20,0.85); border:1px solid rgba(255,255,255,0.15); color:#E5E7EB; width:2.5rem; height:2.5rem; border-radius:50%; font-size:1.25rem; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:10; transition:border-color 0.2s, color 0.2s;"
+            aria-label="Previous photo"
+          >&#8249;</button>
+
+          <!-- Next arrow -->
+          <button
+            class="carousel-next"
+            style="position:absolute; right:-1.5rem; top:50%; transform:translateY(-50%); background:rgba(11,15,20,0.85); border:1px solid rgba(255,255,255,0.15); color:#E5E7EB; width:2.5rem; height:2.5rem; border-radius:50%; font-size:1.25rem; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:10; transition:border-color 0.2s, color 0.2s;"
+            aria-label="Next photo"
+          >&#8250;</button>
+
+          <!-- Counter + dots -->
+          <div style="display:flex; flex-direction:column; align-items:center; gap:0.5rem; margin-top:1rem;">
+            <span class="carousel-counter" style="color:rgba(229,231,235,0.4); font-family:monospace; font-size:0.8rem;"></span>
+            <div class="carousel-dots" style="display:flex; gap:0.5rem;"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  ))}
+
+</Layout>
+
+<script is:inline>
+  (function () {
+    document.querySelectorAll('.carousel').forEach(function (carousel) {
+      var slides = carousel.querySelectorAll('.carousel-slide');
+      var dotsEl = carousel.querySelector('.carousel-dots');
+      var counter = carousel.querySelector('.carousel-counter');
+      var current = 0;
+      var total = slides.length;
+
+      // Build dots
+      slides.forEach(function (_, i) {
+        var dot = document.createElement('button');
+        dot.style.cssText = 'width:8px; height:8px; border-radius:50%; border:none; cursor:pointer; transition:background 0.2s; padding:0;';
+        dot.setAttribute('aria-label', 'Photo ' + (i + 1));
+        dot.addEventListener('click', function () { go(i); });
+        dotsEl.appendChild(dot);
+      });
+
+      function go(index) {
+        slides[current].style.opacity = '0';
+        current = (index + total) % total;
+        slides[current].style.opacity = '1';
+        counter.textContent = (current + 1) + ' / ' + total;
+        dotsEl.querySelectorAll('button').forEach(function (dot, i) {
+          dot.style.background = i === current ? '#00FF9F' : 'rgba(255,255,255,0.3)';
+        });
+      }
+
+      // Arrow hover colours
+      [carousel.querySelector('.carousel-prev'), carousel.querySelector('.carousel-next')].forEach(function (btn) {
+        btn.addEventListener('mouseenter', function () {
+          btn.style.borderColor = '#00FF9F';
+          btn.style.color = '#00FF9F';
+        });
+        btn.addEventListener('mouseleave', function () {
+          btn.style.borderColor = 'rgba(255,255,255,0.15)';
+          btn.style.color = '#E5E7EB';
+        });
+      });
+
+      carousel.querySelector('.carousel-prev').addEventListener('click', function () { go(current - 1); });
+      carousel.querySelector('.carousel-next').addEventListener('click', function () { go(current + 1); });
+
+      // Init first slide
+      go(0);
+    });
+  })();
+</script>
