@@ -1,0 +1,138 @@
+export const tools = [
+  {
+    slug: 'wireshark',
+    name: 'Wireshark',
+    icon: '🦈',
+    color: '#1d6fa4',
+    tagline: 'Network packet analyzer',
+    description:
+      'Wireshark is the world\'s most widely used network protocol analyzer. It lets you capture and interactively browse the traffic running on a computer network, making it an essential tool for network troubleshooting, analysis, and cybersecurity.',
+    features: [
+      'Live packet capture from any network interface',
+      'Deep inspection of hundreds of protocols',
+      'Filter and search through captured traffic',
+      'Export data in multiple formats',
+    ],
+    downloadUrl: 'https://www.wireshark.org/download.html',
+    platform: 'Windows, macOS, Linux',
+  },
+  {
+    slug: 'nmap',
+    name: 'Nmap',
+    icon: '🗺️',
+    color: '#2563eb',
+    tagline: 'Network mapper & scanner',
+    description:
+      'Nmap (Network Mapper) is a free, open-source tool for network discovery and security auditing. It is used to discover hosts and services on a network by sending packets and analyzing responses.',
+    features: [
+      'Host discovery and port scanning',
+      'Service and version detection',
+      'OS detection',
+      'Scriptable with the Nmap Scripting Engine (NSE)',
+    ],
+    downloadUrl: 'https://nmap.org/download.html',
+    platform: 'Windows, macOS, Linux',
+  },
+  {
+    slug: 'burpsuite',
+    name: 'Burp Suite',
+    icon: '🕷️',
+    color: '#f97316',
+    tagline: 'Web application security testing',
+    description:
+      'Burp Suite is an integrated platform for performing security testing of web applications. It includes tools for intercepting HTTP/S traffic, scanning for vulnerabilities, and exploiting web application flaws.',
+    features: [
+      'Intercept and modify HTTP/S requests',
+      'Automated web vulnerability scanner',
+      'Intruder tool for automated attacks',
+      'Repeater for manual request manipulation',
+    ],
+    downloadUrl: 'https://portswigger.net/burp/communitydownload',
+    platform: 'Windows, macOS, Linux',
+  },
+  {
+    slug: 'ghidra',
+    name: 'Ghidra',
+    icon: '👁️',
+    color: '#ef4444',
+    tagline: 'Reverse engineering framework',
+    description:
+      'Ghidra is a free and open-source reverse engineering tool developed by the NSA. It helps analysts understand unknown programs through disassembly, decompilation, and scripting — an essential skill in malware analysis and CTF challenges.',
+    features: [
+      'Disassembler and decompiler for multiple architectures',
+      'Interactive code analysis',
+      'Collaborative analysis support',
+      'Scriptable via Java or Python',
+    ],
+    downloadUrl: 'https://ghidra-sre.org/',
+    platform: 'Windows, macOS, Linux',
+  },
+  {
+    slug: 'metasploit',
+    name: 'Metasploit',
+    icon: '💣',
+    color: '#7c3aed',
+    tagline: 'Penetration testing framework',
+    description:
+      'The Metasploit Framework is the world\'s most used penetration testing framework. It allows security professionals to find, exploit, and validate vulnerabilities in systems, and is widely used in ethical hacking and red team engagements.',
+    features: [
+      'Large library of exploits and payloads',
+      'Post-exploitation modules',
+      'Auxiliary scanning and enumeration tools',
+      'Integrates with Nmap and other tools',
+    ],
+    downloadUrl: 'https://www.metasploit.com/download',
+    platform: 'Linux (best on Kali), macOS, Windows',
+  },
+  {
+    slug: 'hashcat',
+    name: 'Hashcat',
+    icon: '#️⃣',
+    color: '#059669',
+    tagline: 'Advanced password recovery',
+    description:
+      'Hashcat is the world\'s fastest and most advanced password recovery utility. It supports five unique modes of attack for over 350 hash types, making it a staple tool for CTF challenges and penetration testers.',
+    features: [
+      'GPU-accelerated cracking',
+      'Supports 350+ hash types',
+      'Multiple attack modes (dictionary, brute-force, rule-based)',
+      'Cross-platform and open source',
+    ],
+    downloadUrl: 'https://hashcat.net/hashcat/',
+    platform: 'Windows, macOS, Linux',
+  },
+  {
+    slug: 'john',
+    name: 'John the Ripper',
+    icon: '🔓',
+    color: '#b45309',
+    tagline: 'Password cracking tool',
+    description:
+      'John the Ripper is a fast open-source password security auditing and password recovery tool. It is designed to detect weak Unix passwords and is commonly used in CTF competitions and security audits.',
+    features: [
+      'Auto-detects hash types',
+      'Dictionary and brute-force attacks',
+      'Supports custom wordlists',
+      'Wide hash format support',
+    ],
+    downloadUrl: 'https://www.openwall.com/john/',
+    platform: 'Windows, macOS, Linux',
+  },
+  {
+    slug: 'kali',
+    name: 'Kali Linux',
+    icon: '🐉',
+    color: '#1e293b',
+    tagline: 'Security-focused Linux distro',
+    description:
+      'Kali Linux is a Debian-based Linux distribution designed for digital forensics and penetration testing. It comes pre-loaded with hundreds of security tools and is the go-to operating system for cybersecurity professionals.',
+    features: [
+      '600+ pre-installed security tools',
+      'Live boot or VM installation',
+      'Custom kernel with security patches',
+      'Regular updates and active community',
+    ],
+    downloadUrl: 'https://www.kali.org/get-kali/',
+    platform: 'Bare metal, VM, WSL, Docker',
+  },
+];

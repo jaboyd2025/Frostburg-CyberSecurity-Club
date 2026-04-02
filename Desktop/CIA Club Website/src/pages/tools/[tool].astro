@@ -1,0 +1,77 @@
+---
+import Layout from '../../components/Layout.astro';
+import { tools } from '../../data/tools.js';
+
+export function getStaticPaths() {
+  return tools.map((tool) => ({
+    params: { tool: tool.slug },
+    props: { tool },
+  }));
+}
+
+const { tool } = Astro.props;
+---
+
+<Layout title={`${tool.name} — Frostburg Cybersecurity Club`}>
+
+  <!-- Back link -->
+  <div class="max-w-3xl mx-auto px-4 pt-10">
+    <a href="/resources" class="text-[#E5E7EB]/70 hover:text-[#00FF9F] text-base font-semibold transition">
+      ← Back to Resources
+    </a>
+  </div>
+
+  <!-- Header -->
+  <section class="max-w-3xl mx-auto px-4 pt-8 pb-12">
+    <div class="flex items-center gap-5 mb-6">
+      <div
+        class="w-20 h-20 rounded-2xl flex items-center justify-center text-4xl flex-shrink-0 shadow-xl"
+        style={`background: ${tool.color}22; border: 1px solid ${tool.color}55;`}
+      >
+        {tool.icon}
+      </div>
+      <div>
+        <span class="text-[#3B82F6] text-sm font-mono tracking-widest uppercase">Security Tool</span>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-[#E5E7EB] mt-2">{tool.name}</h1>
+        <p class="text-[#E5E7EB]/60 text-sm mt-2">{tool.platform}</p>
+      </div>
+    </div>
+
+    <!-- Tagline bar -->
+    <div
+      class="h-0.5 rounded-full mb-8"
+      style={`background: linear-gradient(to right, ${tool.color}, transparent);`}
+    />
+
+    <!-- Description -->
+    <p class="text-[#E5E7EB]/80 text-lg leading-relaxed mb-10">
+      {tool.description}
+    </p>
+
+    <!-- Features -->
+    <div class="mb-10 mt-6">
+      <h2 class="text-2xl font-bold text-[#E5E7EB] mb-5">Key Features</h2>
+      <ul class="space-y-4 mt-4">
+        {tool.features.map((f) => (
+          <li class="flex items-start gap-4 bg-white/5 border border-white/10 rounded-lg px-5 py-4 text-[#E5E7EB]/80 text-base">
+            <span class="text-[#00FF9F] mt-0.5 flex-shrink-0 text-lg">▸</span>
+            {f}
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Download CTA -->
+    <div class="border-t border-white/10 pt-16 flex flex-wrap gap-4">
+      <a
+        href={tool.downloadUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="px-6 py-3 rounded bg-[#00FF9F] text-[#0B0F14] font-bold hover:opacity-90 transition"
+      >
+        Download {tool.name} ↗
+      </a>
+    </div>
+  </section>
+
+</Layout>
