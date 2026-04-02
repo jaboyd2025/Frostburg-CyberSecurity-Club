@@ -1,4 +1,7 @@
 {
+  "buildCommand": "npx astro build",
+  "installCommand": "npm install",
+  "outputDirectory": "dist",
   "headers": [
     {
       "source": "/(.*)",
